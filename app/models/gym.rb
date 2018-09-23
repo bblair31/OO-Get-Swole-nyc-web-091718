@@ -14,13 +14,11 @@ class Gym
   end
 
   def memberships
-    #Access all memberships => [Memberships]
-    #determine wheter or not the membership belongs to this gym (self)
-    Membership.all.select do |m|
-      m.gym == self
+    Membership.all.select do |membership|
+      membership.gym == self
     end
   end
-  
+
   def lifters
     #Access all memberships
     #our gym?
@@ -38,7 +36,7 @@ class Gym
     end
   end
 
-  def total_lifter_liftable_weight
+  def lift_total_for_gym
     lifter_liftable_weight = 0
     #get lifters
     self.lifters.each do |l|
@@ -47,5 +45,6 @@ class Gym
     end
     lifter_liftable_weight
   end
+
 
 end
